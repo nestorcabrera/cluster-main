@@ -338,8 +338,8 @@ global:
         # secret:
         # key:
     backups:
-      bucket: dev-gitlab-backups
-      tmpBucket: dev-tmp
+      bucket: dev-gitlab-backup-storage
+      tmpBucket: dev-tmp-10
 
     ## https://docs.gitlab.com/charts/installation/command-line-options.html#incoming-email-configuration
     ## https://docs.gitlab.com/charts/charts/gitlab/mailroom/index.html#incoming-email
