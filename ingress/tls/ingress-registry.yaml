@@ -31,4 +31,4 @@ spec:
   tls:
     - hosts:
         - registry.gnappv2.dev.gasneiva.com
-      secretName: gitlab-wildcard-tls
+      secretName: registry-wildcard-tls

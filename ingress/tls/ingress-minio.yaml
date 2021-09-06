@@ -31,4 +31,4 @@ spec:
   tls:
     - hosts:
         - minio.gnappv2.dev.gasneiva.com
-      secretName: gitlab-wildcard-tls
+      secretName: minio-wildcard-tls
