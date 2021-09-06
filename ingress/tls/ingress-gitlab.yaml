@@ -39,4 +39,4 @@ spec:
   tls:
     - hosts:
         - gitlab.gnappv2.dev.gasneiva.com
-      secretName: gitlab-wildcard-tls
+      secretName: gitlab-tls
