@@ -54,7 +54,7 @@ global:
     allowClusterRoles: true
   ## https://docs.gitlab.com/charts/charts/globals#configure-host-settings
   hosts:
-    domain: gnapp.dev.gasneiva.com
+    domain: gnappv2.dev.gasneiva.com
     hostSuffix:
     https: true
     externalIP:
