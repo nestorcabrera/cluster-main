@@ -108,7 +108,7 @@ checkInterval: 30
 
 ## For RBAC support:
 rbac:
-  create: false
+  create: true
 
   ## Define specific rbac permissions.
   ## DEPRECATED: see .Values.rbac.rules
@@ -120,12 +120,12 @@ rbac:
   ## - apiGroups: default "" (indicates the core API group) if missing or empty.
   ## - resources: default "*" if missing or empty.
   ## - verbs: default "*" if missing or empty.
-  rules:
-   - resources: ["pods", "secrets"]
-     verbs: ["get", "list", "watch", "create", "patch", "delete"]
-   - apiGroups: [""]
-     resources: ["pods/exec"]
-     verbs: ["create", "patch", "delete"]
+  rules: []
+  # - resources: ["pods", "secrets"]
+  #   verbs: ["get", "list", "watch", "create", "patch", "delete"]
+  # - apiGroups: [""]
+  #   resources: ["pods/exec"]
+  #   verbs: ["create", "patch", "delete"]
 
   ## Run the gitlab-bastion container with the ability to deploy/manage containers of jobs
   ## cluster-wide or only within namespace
