@@ -9,7 +9,7 @@
 ##       don't forget to change the securityContext;
 ##       these images run on different user IDs.
 ##
-# image: gitlab/gitlab-runner:alpine-v11.6.0
+image: gitlab/gitlab-runner:latest
 
 ## Specify a imagePullPolicy for the main runner deployment
 ## 'Always' if imageTag is 'latest', else set to 'IfNotPresent'
@@ -120,12 +120,12 @@ rbac:
   ## - apiGroups: default "" (indicates the core API group) if missing or empty.
   ## - resources: default "*" if missing or empty.
   ## - verbs: default "*" if missing or empty.
-  rules: []
-  # - resources: ["pods", "secrets"]
-  #   verbs: ["get", "list", "watch", "create", "patch", "delete"]
-  # - apiGroups: [""]
-  #   resources: ["pods/exec"]
-  #   verbs: ["create", "patch", "delete"]
+  rules:
+   - resources: ["pods", "secrets"]
+     verbs: ["get", "list", "watch", "create", "patch", "delete"]
+   - apiGroups: [""]
+     resources: ["pods/exec"]
+     verbs: ["create", "patch", "delete"]
 
   ## Run the gitlab-bastion container with the ability to deploy/manage containers of jobs
   ## cluster-wide or only within namespace
@@ -373,7 +373,7 @@ runners:
 
   ## Service Account to be used for runners
   ##
-  # serviceAccountName:
+  serviceAccountName:
 
   ## If Gitlab is not reachable through $CI_SERVER_URL
   ##
