@@ -9,12 +9,28 @@ helm repo add kube-state-metrics https://kubernetes.github.io/kube-state-metrics
 helm repo add grafana https://grafana.github.io/helm-charts
 helm repo update
 
+#----------------------Monitoring
+helm install prometheus prometheus-community/kube-prometheus-stack \
+    --namespace monitoring \
+    --version 14.6.0 \
+    --values values/prometheus.yaml \
+    --create-namespace
+
+helm upgrade --install grafana grafana/grafana \
+    --namespace monitoring \
+    --version 6.16.2 \
+    --create-namespace
+
+
+#-----------------------Ingress
 helm upgrade --install ingress-nginx ingress-nginx/ingress-nginx \
     --namespace ingress \
     --version 4.0.1 \
     --values values/nginx.yaml \
     --create-namespace
 
+
+#-----------------------Gitlab
 export PROJECT_ID=$(gcloud config get-value project)
 #gcloud iam service-accounts create gitlab-gcs --display-name "Gitlab Cloud Storage"
 #gcloud projects add-iam-policy-binlsding \
@@ -38,17 +54,6 @@ helm upgrade --install gitlab gitlab/gitlab \
     --set gitlab.task-runner.backups.objectStorage.config.secret=storage-config \
     --set gitlab.task-runner.backups.objectStorage.config.key=config \
     --values values/gitlab.yaml \
-    --create-namespace
-
-helm install prometheus prometheus-community/kube-prometheus-stack \
-    --namespace monitoring \
-    --version 14.6.0 \
-    --values values/prometheus.yaml \
-    --create-namespace
-
-helm upgrade --install grafana grafana/grafana \
-    --namespace monitoring \
-    --version 6.16.2 \
     --create-namespace
 
 helm upgrade --install cert-manager jetstack/cert-manager \
