@@ -208,11 +208,11 @@ runners:
   ##
   ## ref: https://docs.gitlab.com/ce/ci/runners/#use-tags-to-limit-the-number-of-jobs-using-the-runner
   ##
-  # tags: ""
+  tags: "kubernetes_gnapp"
 
   ## Specify the name for the runner.
   ##
-  # name: ""
+  name: "kubernetes_gnapp"
 
   ## Specify if jobs without tags should be run.
   ## If not specified, Runner will default to true if no tags were specified. In other case it will
