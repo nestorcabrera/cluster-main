@@ -1,0 +1,35 @@
+# The GitLab Server URL (with protocol) that want to register the runner against
+# ref: https://docs.gitlab.com/runner/commands/README.html#gitlab-runner-register
+#
+gitlabUrl: https://gitlab.gnappv2.dev.gasneiva.com/
+
+# The Registration Token for adding new runners to the GitLab Server. This must
+# be retrieved from your GitLab instance.
+# ref: https://docs.gitlab.com/ce/ci/runners/README.html
+#
+runnerRegistrationToken: "SkpEh-svMmDCthSHQ3_6"
+
+## Configure integrated Prometheus metrics exporter
+## ref: https://docs.gitlab.com/runner/monitoring/#configuration-of-the-metrics-http-server
+metrics:
+  enabled: true
+
+# For RBAC support:
+rbac:
+    create: true
+
+# Run all containers with the privileged flag enabled
+# This will allow the docker:dind image to run if you need to run Docker
+# commands. Please read the docs before turning this on:
+# ref: https://docs.gitlab.com/runner/executors/kubernetes.html#using-dockerdind
+runners:
+    privileged: true
+      ## Specify the tags associated with the runner. Comma-separated list of tags.
+    ##
+    ## ref: https://docs.gitlab.com/ce/ci/runners/#use-tags-to-limit-the-number-of-jobs-using-the-runner
+    ##
+    tags: "kubernetes_gnapp"
+
+    ## Specify the name for the runner.
+    ##
+    name: "kubernetes_gnapp"
