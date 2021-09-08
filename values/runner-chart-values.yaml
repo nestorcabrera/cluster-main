@@ -22,14 +22,28 @@ rbac:
 # This will allow the docker:dind image to run if you need to run Docker
 # commands. Please read the docs before turning this on:
 # ref: https://docs.gitlab.com/runner/executors/kubernetes.html#using-dockerdind
-runners:
-    privileged: true
+#runners:
+    #privileged: true
       ## Specify the tags associated with the runner. Comma-separated list of tags.
     ##
     ## ref: https://docs.gitlab.com/ce/ci/runners/#use-tags-to-limit-the-number-of-jobs-using-the-runner
     ##
-    tags: "kubernetes_gnapp"
+    #tags: "kubernetes_gnapp"
 
     ## Specify the name for the runner.
     ##
-    name: "kubernetes_gnapp"
+    #name: "kubernetes_gnapp"
+
+runners:
+  config: |
+    [[runners]]
+      [runners.kubernetes]
+        image = "ubuntu:20.04"
+        privileged = true
+      [[runners.kubernetes.volumes.empty_dir]]
+        name = "docker-certs"
+        mount_path = "/certs/client"
+        medium = "Memory"
+
+  tags: "kubernetes_gnapp"
+  name: "kubernetes_gnapp"
