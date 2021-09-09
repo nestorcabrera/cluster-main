@@ -35,6 +35,9 @@ rbac:
     #name: "kubernetes_gnapp"
 
 runners:
+  cache:
+    secretName: google-application-credentials
+    
   config: |
     [[runners]]
       [runners.kubernetes]
@@ -50,9 +53,6 @@ runners:
         name = "docker-certs"
         mount_path = "/certs/client"
         medium = "Memory"
-
-  cache:
-      secretName: google-application-credential
 
   tags: "kubernetes_gnapp"
   name: "kubernetes_gnapp"
