@@ -31,19 +31,22 @@ helm upgrade --install ingress-nginx ingress-nginx/ingress-nginx \
 
 
 #-----------------------Gitlab
-export PROJECT_ID=$(gcloud config get-value project)
+#export PROJECT_ID=$(gcloud config get-value project)
 #gcloud iam service-accounts create gitlab-gcs --display-name "Gitlab Cloud Storage"
 #gcloud projects add-iam-policy-binlsding \
 #    --role roles/storage.admin ${PROJECT_ID} \
 #    --member=serviceAccount:gitlab-gcs@${PROJECT_ID}.iam.gserviceaccount.com
 #gcloud iam service-accounts keys create --iam-account gitlab-gcs@${PROJECT_ID}.iam.gserviceaccount.com storage.config
+#kubectl create secret generic storage-config --from-file=config=storage.config -n gitlab
+
+kubectl create namespace gitlab
+#-----------------------Secret credentials GCS
 kubectl create secret generic storage-config --from-file=config=storage.config -n gitlab
 
 helm upgrade --install gitlab gitlab/gitlab \
     --namespace gitlab \
     --timeout 600s \
     --version 5.2.1 \
-    --namespace gitlab \
     --set gitlab-runner.runners.privileged=true \
     --set nginx-ingress.enabled=false \
     --set global.ingress.enabled=false \

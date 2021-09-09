@@ -6,5 +6,10 @@
 #--set tags="kubernetes_gnapp" \
 #--set privileged=true \
 #--create-namespace
+kubectl create namespace test
+kubectl create secret generic google-application-credentials \
+    --from-file=gcs-application-credentials-file=storage.config \
+    --namespace test
 
-helm upgrade --install --namespace test gitlab-runner-gnapp -f values/runner-chart-values.yaml gitlab/gitlab-runner
+helm upgrade --install --namespace test gitlab-runner-gnapp -f values/runner-chart-values.yaml gitlab/gitlab-runner \
+    --create-namespace

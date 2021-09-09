@@ -40,10 +40,19 @@ runners:
       [runners.kubernetes]
         image = "ubuntu:20.04"
         privileged = true
+        [runners.cache]
+          Type = "gcs"
+          Path = "runner"
+          Shared = true
+          [runners.cache.gcs]
+            BucketName = "dev-runners-cache-10"
       [[runners.kubernetes.volumes.empty_dir]]
         name = "docker-certs"
         mount_path = "/certs/client"
         medium = "Memory"
+
+  cache:
+      secretName: google-application-credential
 
   tags: "kubernetes_gnapp"
   name: "kubernetes_gnapp"
