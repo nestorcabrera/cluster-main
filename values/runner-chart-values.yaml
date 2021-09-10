@@ -1,7 +1,7 @@
 # The GitLab Server URL (with protocol) that want to register the runner against
 # ref: https://docs.gitlab.com/runner/commands/README.html#gitlab-runner-register
 #
-gitlabUrl: https://gitlab.gnappv2.dev.gasneiva.com/
+gitlabUrl: https://gitlab.gnappv3.dev.gasneiva.com/
 
 # The Registration Token for adding new runners to the GitLab Server. This must
 # be retrieved from your GitLab instance.

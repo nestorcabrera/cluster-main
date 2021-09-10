@@ -8,7 +8,7 @@ metadata:
   namespace: monitoring
 spec:
   rules:
-    - host: prometheus.gnappv2.dev.gasneiva.com
+    - host: prometheus.gnappv3.dev.gasneiva.com
       http:
         paths:
         - path: /
@@ -18,7 +18,7 @@ spec:
               name: prometheus-kube-prometheus-prometheus
               port: 
                 number: 9090
-    - host: grafana.gnappv2.dev.gasneiva.com
+    - host: grafana.gnappv3.dev.gasneiva.com
       http:
         paths:
         - path: /
@@ -28,7 +28,7 @@ spec:
               name: grafana
               port: 
                 number: 80
-    - host: alerts.gnappv2.dev.gasneiva.com
+    - host: alerts.gnappv3.dev.gasneiva.com
       http:
         paths:
         - path: /

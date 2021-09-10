@@ -19,7 +19,7 @@ metadata:
     #nginx.ingress.kubernetes.io/service-upstream: "true"
 spec:
   rules:
-    - host: gitlab.gnappv2.dev.gasneiva.com
+    - host: gitlab.gnappv3.dev.gasneiva.com
       http:
         paths:
           - path: /
@@ -38,5 +38,5 @@ spec:
                   number: 8080
   tls:
     - hosts:
-        - gitlab.gnappv2.dev.gasneiva.com
+        - gitlab.gnappv3.dev.gasneiva.com
       secretName: gitlab-tls

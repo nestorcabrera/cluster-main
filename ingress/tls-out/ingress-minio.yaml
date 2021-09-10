@@ -17,7 +17,7 @@ metadata:
     
 spec:
   rules:
-    - host: minio.gnappv2.dev.gasneiva.com
+    - host: minio.gnappv3.ev.gasneiva.com
       http:
         paths:
           - path: /

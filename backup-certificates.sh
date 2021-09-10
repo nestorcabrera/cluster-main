@@ -1,0 +1,1 @@
+kubectl get --all-namespaces -oyaml issuer,clusterissuer,cert > backups/certificates.yaml

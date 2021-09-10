@@ -1,0 +1,1 @@
+kubectl apply -f <(awk '!/^ *(resourceVersion|uid): [^ ]+$/' backups/certificates.yaml)

@@ -17,7 +17,7 @@ metadata:
     
 spec:
   rules:
-    - host: registry.gnappv2.dev.gasneiva.com
+    - host: registry.gnappv3.dev.gasneiva.com
       http:
         paths:
           - path: /
